@@ -15,12 +15,12 @@ The key element in the automation process is the "creation of time information t
 
 OpenCV is used to extract and analyze frame information.
 
-Analysis processing is performed on the extracted frame information for each second, but since analysis processing must be tailored to the video, we are working on this as an issue.
+Analysis processing is performed on the extracted frame information for each second, but since analysis processing must be tailored to the video, I'm working on this as an issue.
 
 ## Usage
 1. Get project
 ```
-% git clone https://github.com/7rikazhexde/auto-video-trimming-export.git
+% git clone https://github.com/7rikazhexde/auto-video-trimming-export.git 
 ```
 
 2. Various settings
@@ -28,6 +28,7 @@ Creating a video file for trimming
 
 * File name setting  
 AppleScript will not execute the process if the file name contains spaces or special characters.  
+
 The file name should be in a format that excludes spaces and special characters.
 
 * File path setting  
@@ -40,9 +41,14 @@ Set the time information in the time_list key (list) in ```[trim_info]``` of ```
 Set an empty time information in the time_list key (list) in ```[trim_info]``` of ```media_info.toml```.
 
 * trimming and exporting process  
-  For Mac, use QuickTime Player from AppleScript.For Windows and linux, use MoviePy.
-  Each process is automatically detected and processed based on platform information.
-  MoviePy can be used for Mac, but QuickTime Player is used because QuickTime Player is faster for export processing.
+  For Mac, use QuickTime Player from AppleScript.  
+
+  For Windows and linux, use MoviePy.  
+
+  Each process is automatically detected and processed based on platform information.  
+
+  MoviePy can be used for Mac, but QuickTime Player is used because QuickTime Player is faster for export processing.  
+
   If you want to use MoviePy on a Mac, change ```self.__pf``` to something other than ```'Darwin'```.
 
 ### Notes
