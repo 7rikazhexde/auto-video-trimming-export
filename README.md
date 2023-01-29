@@ -84,9 +84,11 @@ Or create a virtual environment with venv, pyenv, etc. and run the following com
 
 * To use AppleScript (Mac only)
 ```
-% Python exe_applescript.py
+% cd app
+% python exe_applescript.py
 ```
 * To use MoviePy
 ```
-% Python moviepy_trim.py
+% cd app
+% python moviepy_trim.py
 ```
