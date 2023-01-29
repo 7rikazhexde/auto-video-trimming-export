@@ -5,7 +5,7 @@ This project aims to automate the trimming and exporting of video files.
 
 ## Notes
 Due to the incomplete video analysis process, this program is not generic.  
-In the future, we would like to support analysis processing based on certain rules.  
+In the future, I’d like to support analysis processing based on certain rules.  
 At this time, please use the method of specifying time information in ```media_info.toml``` to execute the program.
 
 ## Approaches to Automation
@@ -71,8 +71,8 @@ Run the poetry command.
 ```
 * If the package DL fails after installation, there may be a problem with the development environment.
 * See Switching between environments.
-* Please run poetry env info to check your development environment.
-* If your python version is not 3.10 or higher, please run poetry env use python3.10 to recreate your development environment.
+* Please run ```poetry env info``` to check your development environment.
+* If your python version is not 3.10 or higher, please run ```poetry env use python3.10``` to recreate your development environment.
 
 Or create a virtual environment with venv, pyenv, etc. and run the following command.
 ```
