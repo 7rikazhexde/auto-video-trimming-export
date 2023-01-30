@@ -23,24 +23,21 @@ Analysis processing is performed on the extracted frame information for each sec
 % git clone https://github.com/7rikazhexde/auto-video-trimming-export.git 
 ```
 
-2. Various settings
-Creating a video file for trimming
+2. Trimming Process Settings
+* Video file  
+  Store video files in ```app/media```.  
+  Note: Executable files can be ```.mov``` or ```.mp4``` file.  
+  
+  Set path = "path of the video file" in ```[media]``` of ```media_info.toml```.  
+  Note: File names must be specified without spaces or special characters.  
 
-* File name setting  
-AppleScript will not execute the process if the file name contains spaces or special characters.  
-
-The file name should be in a format that excludes spaces and special characters.
-
-* File path setting  
-Set path = "path of the video file" in ```[media]``` of ```media_info.toml```.
-
-* Trimming processing time setting  
-Set the time information in the time_list key (list) in ```[trim_info]``` of ```media_info.toml```.
+* Trimming processing time   
+  Set the time information in the ```time_list``` key (list) in ```[trim_info]``` of ```media_info.toml```.
 
 * Trimming processing time setting based on video analysis (deprecated)  
-Set an empty time information in the time_list key (list) in ```[trim_info]``` of ```media_info.toml```.
+  Set an empty time information in the ```time_list``` key (list) in ```[trim_info]``` of ```media_info.toml```.
 
-* trimming and exporting process  
+* Trimming and exporting process  
   For Mac, use QuickTime Player from AppleScript.  
 
   For Windows and linux, use MoviePy.  
@@ -55,10 +52,10 @@ Set an empty time information in the time_list key (list) in ```[trim_info]``` o
 * Output file resolution is 640X360.
 * Codec specification is as follows
 
-| Program | codec         | codec audio    | 
-| ----- | ----------- | --------------- |
-| AppleScript   | H264     | AAC | 
-| MoviePy   | libx264     | AAC | 
+  | Program     | codec       | codec audio | 
+  | ----------- | ----------- | ----------- |
+  | AppleScript | H264        | AAC         | 
+  | MoviePy     | libx264     | AAC         | 
 
 * Except for the resolution setting (480p), the default settings will be used.
 * [MoviePy more details](https://zulko.github.io/moviepy/ref/VideoClip/VideoClip.html#moviepy.video.VideoClip.VideoClip.write_videofile
