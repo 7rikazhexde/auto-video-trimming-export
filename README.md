@@ -39,13 +39,16 @@ Trimming can be performed on video files according to the following specificatio
 This project uses the information defined in ```setting.toml``` to read, log, analyze, create timestamps, and process the export of video files.
 
 * [log]
+
   Define settings for outputting execution results to the log and console.
   
 * [media]
+
   Defines the video file path to be analyzed and processed.
   This program targets MOV and MP4 operation. Others are not guaranteed.
 
 * [[parse_info]]
+
   parse_info[0] defines whether the analysis process can be performed or not.
 
   parse_info[1] and thereafter define variables to be used in the analysis process.
@@ -53,10 +56,11 @@ This project uses the information defined in ```setting.toml``` to read, log, an
   For example, if you want to analyze three different times, define elements 1 through 3.
 
 * [trim_info]
-  * Trimming processing time   
+
+  Trimming processing time  
   Set the time information in the ```time_list``` key (list) in ```[trim_info]``` of ```setting.toml```.
 
-  * Trimming processing time setting based on video analysis (deprecated)  
+  Trimming processing time setting based on video analysis    
   Set an empty time information in the ```time_list``` key (list) in ```[trim_info]``` of ```setting.toml```.
 
 ### Trimming and exporting process  
@@ -116,4 +120,13 @@ Or create a virtual environment with venv, pyenv, etc. and run the following com
 ```
 % cd app
 % python moviepy_trim.py
+```
+
+## Other Information
+If you are using the [lossless-cut](https://github.com/mifi/lossless-cut#readme) application for the trimming process, the timestamp lists output by this program (```app/media/timestamp_data.csv```) can be used with the [import function](https://github.com/mifi/lossless-cut/blob/master/import-export.md).
+
+### Example
+```timestamp_data.csv
+0.0,11.011000000000001,seg_1
+62.99626666666667,103.00290000000001,seg_2
 ```
