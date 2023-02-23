@@ -7,7 +7,7 @@ class LogProcess:
         """
         Setter for Log Information Settings
 
-        Logs are output to the console and log file according to the ``logging_levelevel_stream`` and ``logging_levelevel_file`` specifications in ``setting.toml``.
+        Logs are output to the console and log file according to the ``logging_level_stream`` and ``logging_level_file`` specifications in ``setting.toml``.
 
         Parameters
         ----------
@@ -15,11 +15,11 @@ class LogProcess:
             Parsing result of the file specified as toml (dictionary)
         """
         log_info = toml_obj['log']['log_file_path']
-        logging_levelevel_stream = toml_obj['log']['logging_levelevel_stream']
-        logging_levelevel_file = toml_obj['log']['logging_levelevel_file']
+        logging_level_stream = toml_obj['log']['logging_level_stream']
+        logging_level_file = toml_obj['log']['logging_level_file']
         self.__logger = logging.getLogger(__name__)
 
-        match logging_levelevel_stream:
+        match logging_level_stream:
             case 'notset':
                 self.__logger.setLevel(logging.NOTSET)
             case 'debug':
@@ -39,7 +39,7 @@ class LogProcess:
         
         file_handler = logging.FileHandler(log_info)
 
-        match logging_levelevel_file:
+        match logging_level_file:
             case 'notset':
                 file_handler.setLevel(logging.NOTSET)
             case 'debug':

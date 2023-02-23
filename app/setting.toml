@@ -4,15 +4,13 @@ title = "Media Info"
 log_file_path = "./execution.log"
 # Outputs the execution log to the specified path.
 
-logging_levelevel_stream = "debug"
-logging_levelevel_file = "debug" 
+logging_level_stream = "debug"
+logging_level_file = "debug" 
 # logging level for Console and log file
 # Set one of the following logging levels.
 # "noset", "debug", "info", "warning", "error", "critical"
 
 [media]
-#input_file_path = "./media/4th_1-3.mp4"
-#input_file_path = "./media/test1-3cut.mp4"
 input_file_path = "./media/test.mp4"
 # Input for MOV or MP4 file path
 
