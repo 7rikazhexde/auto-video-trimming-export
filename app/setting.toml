@@ -106,24 +106,6 @@ skip_frame = 0
 cropping_cordinate_point = [[0,0],[0,0]]
 ocr_detect_info = [""]
 
-[[parse_info]]
-comparison_source_image_path = "./media/comparison_source_images/sample/seane5.png"
-recognized_language = "jpn"
-binarizing_thresh = 125
-hg_comp_correl_thresh = 1.0
-skip_frame = 0
-cropping_cordinate_point = [[0,0],[0,0]]
-ocr_detect_info = [""]
-
-[[parse_info]]
-comparison_source_image_path = "./media/comparison_source_images/sample/seane6.png"
-recognized_language = "jpn"
-binarizing_thresh = 125
-hg_comp_correl_thresh = 1.0
-skip_frame = 0
-cropping_cordinate_point = [[0,0],[0,0]]
-ocr_detect_info = [""]
-
 [trim_info]
 #time_list = [[0, 10], [11, 20], [30, 60]]
 time_list = []

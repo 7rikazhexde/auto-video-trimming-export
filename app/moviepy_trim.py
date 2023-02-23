@@ -65,7 +65,7 @@ if __name__ == '__main__':
     file_path = './media/test.mp4'
     export_file = './media/test_trim.mp4'
     start = 50
-    end = 10
+    end = 100
     fps = 30
 
     with open('./setting.toml') as f:
