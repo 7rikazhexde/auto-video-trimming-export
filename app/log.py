@@ -1,6 +1,6 @@
 import logging, toml
 
-class LogProccess:
+class LogProcess:
     def __init__(self):
         pass
     def set_logging_info(self,toml_obj):
@@ -80,7 +80,7 @@ class LogProccess:
 if __name__ == '__main__':
     with open('./setting.toml') as f:
         toml_obj = toml.load(f)
-    log_process = LogProccess()
+    log_process = LogProcess()
     log_process.logging_info = toml_obj
     lp = log_process.logging_info
     lp.info('')

@@ -1,5 +1,5 @@
 import sys, toml
-from log import LogProccess
+from log import LogProcess
 
 class ErrorProcess:
     def __init__(self,logger):
@@ -8,8 +8,8 @@ class ErrorProcess:
 
         Parameters
         ----------
-        logger : LogProccess
-            Instance variable of LogProccess class
+        logger : LogProcess
+            Instance variable of LogProcess class
             Used for log output
         """
         self.__logger = logger
@@ -33,7 +33,7 @@ class ErrorProcess:
 if __name__ == '__main__':
     with open('./setting.toml') as f:
         toml_obj = toml.load(f)
-    log_process = LogProccess()
+    log_process = LogProcess()
     log_process.logging_info = toml_obj
     logger = log_process.logging_info
     error = ErrorProcess(logger)
