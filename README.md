@@ -6,16 +6,27 @@ This project aims to automate the trimming and exporting of video files.
 ## Notes
 Due to the incomplete video analysis process, this program is not generic.  
 In the future, I’d like to support analysis processing based on certain rules.  
-At this time, please use the method of specifying time information in ```media_info.toml``` to execute the program.
+At this time, please use the method of specifying time information in ```setting.toml``` to execute the program.
 
-## Approaches to Automation
+## Approaches to Automation and Processing Flow
 MoviePy and QuickTime are used for trimming and exporting.
 
-The key element in the automation process is the "creation of time information to be specified in the trimming process," which requires analysis of the video file (frame information). 
+The key to automation is "creating the time information to be specified for trimming," which requires analysis of the video file (frame information).
 
-OpenCV is used to extract and analyze frame information.
+OpenCV is used to extract frame information, and analysis processing is performed in units of seconds according to the specifications in the TOML file.
 
-Analysis processing is performed on the extracted frame information for each second, but since analysis processing must be tailored to the video, I'm working on this as an issue.
+The analysis process obtains timestamps corresponding to frames that match the conditions and saves them as trimming data in a list.
+
+## Usecase
+Trimming can be performed on video files according to the following specifications.
+* Detect scenes
+  * Average of brightness data
+* Character recognition(*1)
+  * OCR(pytesseract)
+* Image similarity (*1)
+  * Correlation coefficient of histogram
+
+(*1) Can be used together
 
 ## Usage
 1. Get project
@@ -24,20 +35,31 @@ Analysis processing is performed on the extracted frame information for each sec
 ```
 
 2. Trimming Process Settings
-* Video file  
-  Store video files in ```app/media```.  
-  Note: Executable files can be ```.mov``` or ```.mp4``` file.  
+
+This project uses the information defined in ```setting.toml``` to read, log, analyze, create timestamps, and process the export of video files.
+
+* [log]
+  Define settings for outputting execution results to the log and console.
   
-  Set path = "path of the video file" in ```[media]``` of ```media_info.toml```.  
-  Note: File names must be specified without spaces or special characters.  
+* [media]
+  Defines the video file path to be analyzed and processed.
+  This program targets MOV and MP4 operation. Others are not guaranteed.
 
-* Trimming processing time   
-  Set the time information in the ```time_list``` key (list) in ```[trim_info]``` of ```media_info.toml```.
+* [[parse_info]]
+  parse_info[0] defines whether the analysis process can be performed or not.
 
-* Trimming processing time setting based on video analysis (deprecated)  
-  Set an empty time information in the ```time_list``` key (list) in ```[trim_info]``` of ```media_info.toml```.
+  parse_info[1] and thereafter define variables to be used in the analysis process.
 
-* Trimming and exporting process  
+  For example, if you want to analyze three different times, define elements 1 through 3.
+
+* [trim_info]
+  * Trimming processing time   
+  Set the time information in the ```time_list``` key (list) in ```[trim_info]``` of ```setting.toml```.
+
+  * Trimming processing time setting based on video analysis (deprecated)  
+  Set an empty time information in the ```time_list``` key (list) in ```[trim_info]``` of ```setting.toml```.
+
+### Trimming and exporting process  
   For Mac, use QuickTime Player from AppleScript.  
 
   For Windows and linux, use MoviePy.  

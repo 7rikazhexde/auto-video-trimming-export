@@ -1,0 +1,132 @@
+title = "Media Info"
+
+[log]
+log_file_path = "./execution.log"
+# Outputs the execution log to the specified path.
+
+logging_levelevel_stream = "debug"
+logging_levelevel_file = "debug" 
+# logging level for Console and log file
+# Set one of the following logging levels.
+# "noset", "debug", "info", "warning", "error", "critical"
+
+[media]
+#input_file_path = "./media/4th_1-3.mp4"
+#input_file_path = "./media/test1-3cut.mp4"
+input_file_path = "./media/test.mp4"
+# Input for MOV or MP4 file path
+
+[[parse_info]]
+# This project uses the information defined in parse_info[] to read, analyze, 
+# create timestamps, and process the export of video files.
+# Analyze[0] defines whether the analysis process can be performed or not.
+# Analyze[1] and thereafter define variables to be used in the analysis process.
+# For example, if you want to analyze three different times, define elements 1 through 3.
+
+ocr_enable = false
+# Set to true to enable OCR.
+
+histogram_analysis_enable = true
+# Set to true to enable image comparison processing.
+# In the image comparison process, binarization and cropping are performed on the images, 
+# and the histogram is calculated to compute the image agreement ratio.
+
+seane_detect_enable = false
+seane_detect_mean_val = 0
+# Set to true to enable seane detect.
+# Value should be set in [0-255].
+# Set 0 to detect black scenes and 255 to detect white scenes.
+
+save_frames_enable = false
+# Set to True to Saves a frame per second as a PNG file.
+
+[[parse_info]]
+comparison_source_image_path = "./media/comparison_source_images/sample/seane1.png"
+# Comparison Source Image
+# Image file path of the comparison source use in the analysis process
+
+recognized_language = "jpn"
+# ocr target language setting
+# To check the data file for OCR-compatible languages, do the following
+# print(pytesseract.get_languages(config=''))
+# If you want to use language data files other than "eng", "osd", or "snum", 
+# please install them additionally.
+
+binarizing_thresh = 125
+# Binarization threshold
+# Value should be set in [0-254].
+
+hg_comp_correl_thresh = 1.0
+# Image Match Ratio Threshold
+# Ratio should be set in [0-1.0].
+# If it is greater than the threshold, 
+# the image is processed as a target image in the image comparison process.
+
+skip_frame = 0
+# Value to change frame loading position
+# Changes the frame loading position by the value set 
+# when the total number of frames (CAP_PROP_FRAME_COUNT) is not exceeded.
+# If you do not want to change the frame loading position, set it to 0.
+
+cropping_cordinate_point = [[0,0],[0,0]]
+# Coordinate points to be cropped (start, end)
+# cropping_cordinate_point = [[start_row, start_col], [end_row, end_col]]
+# If not cropping, set to [[0,0],[0,0]].
+
+ocr_detect_info  = [""]
+# Sets the string to be included in the recognition result.
+# String data should be defined as a one-dimensional array.
+# When multiple elements are set, 
+# only images matching the AND condition will be processed as images to be recognized.
+
+[[parse_info]]
+comparison_source_image_path = "./media/comparison_source_images/sample/seane2.png"
+recognized_language = "jpn"
+binarizing_thresh = 125
+hg_comp_correl_thresh = 1.0
+skip_frame = 0
+cropping_cordinate_point = [[0,0],[0,0]]
+ocr_detect_info = [""]
+
+[[parse_info]]
+comparison_source_image_path = "./media/comparison_source_images/sample/seane3.png"
+recognized_language = "jpn"
+binarizing_thresh = 125
+hg_comp_correl_thresh = 1.0
+skip_frame = 0
+cropping_cordinate_point = [[0,0],[0,0]]
+ocr_detect_info = [""]
+
+[[parse_info]]
+comparison_source_image_path = "./media/comparison_source_images/sample/seane4.png"
+recognized_language = "jpn"
+binarizing_thresh = 125
+hg_comp_correl_thresh = 1.0
+skip_frame = 0
+cropping_cordinate_point = [[0,0],[0,0]]
+ocr_detect_info = [""]
+
+[[parse_info]]
+comparison_source_image_path = "./media/comparison_source_images/sample/seane5.png"
+recognized_language = "jpn"
+binarizing_thresh = 125
+hg_comp_correl_thresh = 1.0
+skip_frame = 0
+cropping_cordinate_point = [[0,0],[0,0]]
+ocr_detect_info = [""]
+
+[[parse_info]]
+comparison_source_image_path = "./media/comparison_source_images/sample/seane6.png"
+recognized_language = "jpn"
+binarizing_thresh = 125
+hg_comp_correl_thresh = 1.0
+skip_frame = 0
+cropping_cordinate_point = [[0,0],[0,0]]
+ocr_detect_info = [""]
+
+[trim_info]
+#time_list = [[0, 10], [11, 20], [30, 60]]
+time_list = []
+# List of time information used in the trimming process
+# time_list = [[start_time1, end_time1],[start_time2, end_time2],...,[start_timeN, end_timeN])
+# If define time_list = [], the specified parsing process will create time information.
