@@ -7,7 +7,7 @@ from moviepy.editor import *
 from moviepy_trim import ExeMovieyPy
 from exe_applescript import ExeAppleScript
 from ocr import OcrProcess
-from log import LogProccess
+from log import LogProcess
 
 class VideoEdit:
     """
@@ -27,8 +27,8 @@ class VideoEdit:
 
         Parameters
         ----------
-        logger : LogProccess
-            Instance variable of LogProccess class
+        logger : LogProcess
+            Instance variable of LogProcess class
             Used for log output
         toml_obj : dict
             Parsing result of the file specified as toml (dictionary)
@@ -469,7 +469,7 @@ if __name__ == '__main__':
     with open('./setting.toml') as f:
         toml_obj = toml.load(f)
 
-    log_process = LogProccess()
+    log_process = LogProcess()
     log_process.logging_info = toml_obj
     logger = log_process.logging_info
 
