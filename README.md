@@ -17,14 +17,13 @@ OpenCV is used to extract frame information, and analysis processing is performe
 
 The analysis process obtains timestamps corresponding to frames that match the conditions and saves them as trimming data in a list.
 
-## Usecase
+## Features
 Trimming can be performed on video files according to the following specifications.
-* Detect scenes
+* Detects frames in a video file using a specified method, cuts off the detected portions, and saves them as a separate file.
   * Average of brightness data
-* Character recognition(*1)
-  * OCR(pytesseract)
-* Image similarity (*1)
-  * Correlation coefficient of histogram
+  * Character recognition by OCR(pytesseract)(*1)
+  * Use Image comparison by histogram correlation coefficient(*1)
+* Trimming data output (csv file)
 
 (*1) Can be used together
 
