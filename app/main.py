@@ -186,10 +186,10 @@ class VideoEdit:
         # Flags that manage information on frames that correspond to the analysis result conditions.
         detect_seane_flag_list = [False] * self.__parse_info_list_num
 
-        self.__total_frame_count = int(self.__capture.get(cv2.CAP_PROP_FRAME_COUNT))
+        self.__total_frame_count = self.__capture.get(cv2.CAP_PROP_FRAME_COUNT)
         self.__logger.info(f'Total number of frames: {self.__total_frame_count}')
 
-        self.__play_time = int(self.__total_frame_count / self.__fps)
+        self.__play_time = self.__total_frame_count / self.__fps
         self.__logger.info(f'Total play time: {self.__play_time}')
 
         if not self.__capture.isOpened():
@@ -317,7 +317,7 @@ class VideoEdit:
                                     analyzed_ts_list.append(timestamp)
                                     detect_seane_flag_list = self.__analyze_process.change_flag(detect_seane_flag_list,i)
                 elif self.__seane_detect_enable:
-                    mean = self.__analyze_process.analyze_frame(frame)
+                    mean = int(self.__analyze_process.analyze_frame(frame))
                     if(mean == self.__seane_detect_mean_val):
                         self.__seane_detect_id += 1
                         self.__logger.info(f'seane_detect_{self.__seane_detect_id}')
