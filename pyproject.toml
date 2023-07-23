@@ -5,7 +5,6 @@ description = "This project aims to specify the trimming process and automate th
 authors = ["7rikaz_h785 <7rikaz.h785.stat2ltas41lcijad@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "auto_video_trimming_export"}]
 
 [tool.poetry.dependencies]
 python = "<3.12,>=3.8"
