@@ -2,9 +2,10 @@
 name = "auto-video-trimming-export"
 version = "0.2.0"
 description = "This project aims to specify the trimming process and automate the export process."
-authors = ["7rikaz_h785 <7rikaz.h785.stat2ltas41lcijad@gmail.com>"]
+authors = ["7rikazhexde"]
 license = "MIT"
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "<3.12,>=3.8"
